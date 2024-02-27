@@ -5,7 +5,7 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#BF616A",
+          "foreground": "#1d3b59",
           "style": "plain",
           "template": "{{ .UserName }} ",
           "type": "session"
@@ -60,7 +60,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#B48EAD",
+          "foreground": "#1d3b59",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#BF616A{{ end }}"
           ],
