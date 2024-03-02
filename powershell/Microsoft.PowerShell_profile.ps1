@@ -16,5 +16,5 @@ oh-my-posh init pwsh --config "~/dotfiles/oh-my-posh/pure.cw.omp.json" | Invoke-
 # Set-PSReadLineOption -PredictionViewStyle ListView
 
 function pni {
-	Set-Location C:\Users\charles\Projects\notion-integration
+	Set-Location ~\Projects\notion-integration
 }
