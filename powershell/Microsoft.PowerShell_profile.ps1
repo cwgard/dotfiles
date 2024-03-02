@@ -12,9 +12,39 @@ oh-my-posh init pwsh --config "~/dotfiles/oh-my-posh/pure.cw.omp.json" | Invoke-
 # Import-Module -Name Terminal-Icons
 
 # Install-Module -Name PSReadLine
-# Import-Module PSReadLine
-# Set-PSReadLineOption -PredictionViewStyle ListView
+# if (-not (Get-Module -ListAvailable -Name PSReadLine))
+# {
+Import-Module PSReadLine
+#}
 
-function pni {
+function OnViModeChange
+{
+	if ($args[0] -eq 'Command')
+	{
+		# Set the cursor to a blinking block.
+		Write-Host -NoNewLine "`e[1 q"
+	} else
+	{
+		# Set the cursor to a blinking line.
+		Write-Host -NoNewLine "`e[5 q"
+	}
+}
+
+$PSReadLineOptions = @{
+	PredictionSource = "History"
+	PredictionViewStyle = "ListView"
+	EditMode = "Vi"
+	ViModeIndicator = "Script"
+	ViModeChangeHandler = $Function:OnViModeChange
+}
+Set-PSReadLineOption @PSReadLineOptions
+
+function pni
+{
 	Set-Location ~\Projects\notion-integration
+}
+
+function vi
+{
+	nvim .
 }
