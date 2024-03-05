@@ -44,7 +44,10 @@ function pni
 	Set-Location ~\Projects\notion-integration
 }
 
-function vi
-{
+function vi {
 	nvim .
+}
+
+function gss {
+	git status -s
 }
