@@ -39,12 +39,17 @@ $PSReadLineOptions = @{
 }
 Set-PSReadLineOption @PSReadLineOptions
 
-function pni
+function cdd
 {
-	Set-Location ~\Projects\notion-integration
+	Set-Location "~\..\*\dotfiles"
 }
 
-function vi {
+function cdp
+{
+	Set-Location ~\Projects\
+}
+
+function nvi {
 	nvim .
 }
 
