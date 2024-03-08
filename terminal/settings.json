@@ -21,12 +21,23 @@
             "keys": "ctrl+v"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+shift+p"
+        },
+        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "ctrl+shift+a"
         }
     ],
     "copyFormatting": "none",
