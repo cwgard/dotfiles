@@ -166,7 +166,7 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- potentially use when using tmux
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
-vim.keymap.set({ 'n', 'v' }, '<leader>f', vim.lsp.buf.format)
+vim.keymap.set({ 'n', 'v' }, '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat' })
 
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
@@ -224,10 +224,33 @@ vim.opt.rtp:prepend(lazypath)
 -- Install Plugins via
 require('lazy').setup {
   {
+    "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>gf", vim.cmd.Git, { desc = '[G]it [F]ugitive' })
+    end
+  },
+  {
     'mbbill/undotree',
     config = function()
-      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = '[U]ndotree' })
     end
+  },
+  {
+    'ThePrimeagen/harpoon',
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local mark = require("harpoon.mark")
+      local ui = require("harpoon.ui")
+
+      vim.keymap.set("n", "<leader>e", mark.add_file, { desc = '[E] Harpoon Add'})
+      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+      vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+      vim.keymap.set("n", "<C-j>", function() ui.nav_file(2) end)
+      vim.keymap.set("n", "<C-k>", function() ui.nav_file(3) end)
+      vim.keymap.set("n", "<C-l>", function() ui.nav_file(4) end)
+    end,
   },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -792,7 +815,9 @@ require('lazy').setup {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'html', 'java', 'lua', 'markdown', 'vim', 'vimdoc' },
+        ensure_installed = {
+          'bash', 'c', 'html', 'java', 'javascript', 'lua', 'markdown',
+          'typescript', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
