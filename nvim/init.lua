@@ -223,6 +223,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Install Plugins via
 require('lazy').setup {
+  {
+    'mbbill/undotree',
+    config = function()
+      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    end
+  },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
