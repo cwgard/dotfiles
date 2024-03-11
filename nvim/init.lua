@@ -131,8 +131,9 @@ vim.opt.isfname:append '@-@'
 
 vim.opt.colorcolumn = '100'
 
--- 03/01/24 CW: copy of remap.lua
 vim.keymap.set('n', '<leader>jk', vim.cmd.Ex)
+
+vim.keymap.set('n', '<leader><C-a>', 'ggVG', { desc = 'Select [A]ll' })
 
 -- Move highlights lines up and down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
