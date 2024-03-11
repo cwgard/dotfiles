@@ -2,7 +2,7 @@
 if (-not (Get-Module -ListAvailable -Name posh-git))
 {
 	Write-Output 'Installing posh-git'
-	Install-Module Terminal-Icons -Force
+	Install-Module posh-git -Force
 }
 if (-not (Get-Module -Name posh-git))
 {
