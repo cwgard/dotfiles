@@ -114,22 +114,27 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', [["+p]])
 vim.keymap.set('n', '<leader>P', [["+P]])
 
 -- Deletes into void register
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = '[d]elete into void' } )
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = '[d]elete into void' })
+
+-- Quit
+vim.keymap.set('n', 'q', ':q<CR>', { noremap = true, silent = true })
 
 -- Quit without saving
 vim.keymap.set('n', 'Q', 'ZQ')
 
 vim.keymap.set({ 'n', 'v' }, '<leader>f', vim.lsp.buf.format, { desc = '[f]ormat' })
 
+-- Navigate quickfix list
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
+-- Navigate location list
+vim.keymap.set('n', '<leader><C-k>', '<cmd>lnext<CR>zz')
+vim.keymap.set('n', '<leader><C-j>', '<cmd>lprev<CR>zz')
 
 -- Substitute word under cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Diagnostic 
+-- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
@@ -139,10 +144,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Ctrl+h/j/k/l to navigate windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<A-C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<A-C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<A-C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<A-C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -162,12 +167,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   {
-    "tpope/vim-fugitive",
-    config = function()
-      vim.keymap.set("n", "<leader>gf", vim.cmd.Git, { desc = '[G]it [F]ugitive' })
-    end
-  },
-  {
     'mbbill/undotree',
     config = function()
       vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = '[U]ndotree' })
@@ -181,7 +180,7 @@ require('lazy').setup {
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
 
-      vim.keymap.set("n", "<leader>e", mark.add_file, { desc = '[E] Harpoon Add'})
+      vim.keymap.set("n", "<leader>e", mark.add_file, { desc = '[E] Harpoon Add' })
       vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
       vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
@@ -790,6 +789,7 @@ require('lazy').setup {
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'plugins' },
 }
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
