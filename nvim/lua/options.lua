@@ -1,9 +1,15 @@
+vim.g.have_nerd_font = true
+
+vim.g.netrw_banner = 0
+-- Tree view
+vim.g.netrw_liststyle = 3
+
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = 'a' 
 
 -- Don't show mode. It's already in the status line
 vim.opt.showmode = false
