@@ -6,3 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Import all plugins in lua/plugins
+require('lazy').setup {
+  { import = 'plugins' },
+}
