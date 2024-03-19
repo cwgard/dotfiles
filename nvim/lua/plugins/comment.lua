@@ -1,4 +1,4 @@
 return { -- "gc" to comment in visual mode
- 'numToStr/Comment.nvim',
-  opts = {}
+    'numToStr/Comment.nvim',
+    opts = {}
 }
