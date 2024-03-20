@@ -61,7 +61,8 @@
                 "size": 28.0,
                 "weight": "thin"
             },
-            "intenseTextStyle": "none"
+            "intenseTextStyle": "none",
+            "scrollbarState": "hidden"
         },
         "list": 
         [
