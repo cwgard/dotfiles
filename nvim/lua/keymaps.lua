@@ -1,9 +1,9 @@
 local km = vim.keymap.set
 
-km('n', '<A-C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
-km('n', '<A-C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
-km('n', '<A-C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
-km('n', '<A-C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
+km('n', '<A-S-h>', '<C-w>h', { desc = 'Move focus to the left window' })
+km('n', '<A-S-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
+km('n', '<A-S-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
+km('n', '<A-S-l>', '<C-w>l', { desc = 'Move focus to the right window' })
 km('n', '<C-b>', '<C-b>zz', { desc = 'Center after full page scroll up' })
 km('n', '<C-d>', '<C-d>zz', { desc = 'Center after half page scroll down' })
 km('n', '<C-f>', '<C-f>zz', { desc = 'Center after full page scroll down' })
