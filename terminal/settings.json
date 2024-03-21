@@ -25,6 +25,10 @@
             "keys": "ctrl+shift+p"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+shift+n"
+        },
+        {
             "command": 
             {
                 "action": "copy",
@@ -72,13 +76,6 @@
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore",
                 "tabTitle": "PS"
-            },
-            {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu (22.04.1)",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "startingDirectory": "C:\\Users\\charles"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
