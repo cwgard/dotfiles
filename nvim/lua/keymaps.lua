@@ -1,12 +1,12 @@
 local km = vim.keymap.set
 
+-- km('n', '<C-b>', '<C-b>zz', { desc = 'Center after full page scroll up' }) WARN: Might not place nice with mini.animate. Double press required?
+-- km('n', '<C-f>', '<C-f>zz', { desc = 'Center after full page scroll down' }) WARN: Might not place nice with mini.animate. Double press required?)
 km('n', '<A-C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
 km('n', '<A-C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
 km('n', '<A-C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 km('n', '<A-C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
--- km('n', '<C-b>', '<C-b>zz', { desc = 'Center after full page scroll up' }) WARN: Might not place nice with mini.animate. Double press required?
 km('n', '<C-d>', '<C-d>zz', { desc = 'Center after half page scroll down' })
--- km('n', '<C-f>', '<C-f>zz', { desc = 'Center after full page scroll down' }) WARN: Might not place nice with mini.animate. Double press required?)
 km('n', '<C-j>', '<cmd>cprev<CR>zz', { desc = 'Prev quickfix' })
 km('n', '<C-k>', '<cmd>cnext<CR>zz', { desc = 'Next quickfix' })
 km('n', '<C-u>', '<C-u>zz', { desc = 'Center after half page scroll up' })
@@ -21,6 +21,7 @@ km('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rro
 km('n', '<leader>jk', vim.cmd.Ex, { desc = '[j]ump bac[k]' })
 km('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 km('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Substitute word' })
+km('n', '<leader>tt', function() vim.cmd.split() vim.cmd.term('pwsh') end, { desc = 'Split pwsh terminal' })
 km('n', 'J', 'mzJ`z', { desc = 'Join next line' })
 km('n', 'N', 'Nzzzv', { desc = 'Center after prev search result' })
 km('n', 'Q', 'ZQ', { desc = 'Quit without saving' })
